@@ -27,7 +27,6 @@ And You can install it in Magisk24.0+
 After reboot
 
 you can find log in LogCat
-![png](/img/template.png)
 
 
 ## 说明
