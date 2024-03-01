@@ -63,27 +63,27 @@ ui_print "- Extracting zygisk libraries"
 
 if [ "$FLAVOR" == "zygisk" ]; then
   mkdir -p "$MODPATH/zygisk"
+
   if [ "$ARCH" = "arm" ] || [ "$ARCH" = "arm64" ]; then
-    extract "$ZIPFILE" "lib/armeabi-v7a/libtest.so" "$MODPATH/zygisk" true
-    mv "$MODPATH/zygisk/libtest.so" "$MODPATH/zygisk/armeabi-v7a.so"
+    extract "$ZIPFILE" "lib/armeabi-v7a/libsys.so" "$MODPATH/zygisk" true
+    mv "$MODPATH/zygisk/libsys.so" "$MODPATH/zygisk/armeabi-v7a.so"
 
     if [ "$IS64BIT" = true ]; then
-      extract "$ZIPFILE" "lib/arm64-v8a/libtest.so" "$MODPATH/zygisk" true
-      mv "$MODPATH/zygisk/libtest.so" "$MODPATH/zygisk/arm64-v8a.so"
+      extract "$ZIPFILE" "lib/arm64-v8a/libsys.so" "$MODPATH/zygisk" true
+      mv "$MODPATH/zygisk/libsys.so" "$MODPATH/zygisk/arm64-v8a.so"
     fi
   fi
 
   if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
-    extract "$ZIPFILE" "lib/x86_64/libtest.so" "$MODPATH/zygisk" true
-    mv "$MODPATH/zygisk/libtest.so" "$MODPATH/zygisk/x86_64.so"
+    extract "$ZIPFILE" "lib/x86_64/libsys.so" "$MODPATH/zygisk" true
+    mv "$MODPATH/zygisk/libsys.so" "$MODPATH/zygisk/x86_64.so"
 
     if [ "$IS64BIT" = true ]; then
-      extract "$ZIPFILE" "lib/x86/libtest.so" "$MODPATH/zygisk" true
-      mv "$MODPATH/zygisk/libtest.so" "$MODPATH/zygisk/x86.so"
+      extract "$ZIPFILE" "lib/x86/libsys.so" "$MODPATH/zygisk" true
+      mv "$MODPATH/zygisk/libsys.so" "$MODPATH/zygisk/x86.so"
     fi
   fi
 fi
-
 
 set_perm_recursive "$MODPATH" 0 0 0755 0644
 
